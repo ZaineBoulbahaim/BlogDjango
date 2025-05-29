@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% block title %}Tags{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Etiquetes</h1>
+  <div class="d-flex flex-wrap gap-2">
+  {% for tag in tags %}
+    <a href="{% url 'blog:tag-detail' tag.tag|lower %}" class="badge bg-primary text-light text-decoration-none fs-5 px-3 py-2">
+      {{ tag.tag }}
+    </a>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+
+<div class="card mb-3 h-100">
+    <!-- Imatge de portada -->
+    <img src="{% static post.image_name %}" class="post-image" alt="Imatge del post">
+    
+    <!-- Cos de la targeta -->
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.summary }}</p>
+        <p class="text-muted"><small>Per {{ post.author }} - {{ post.date }}</small></p>
+        {% if post.tags.all %}
+        <p>
+            {% for tag in post.tags.all %}
+            <a href="{% url 'blog:tag-detail' tag.tag|lower %}" class="badge bg-secondary text-decoration-none">
+              {{ tag.tag }}
+            </a>
+
+            {% endfor %}
+        </p>
+        {% endif %}
+
+        <a href="{% url 'blog:post-detail' post.slug %}" class="btn btn-primary">Llegir més</a>
+    </div>
+</div>

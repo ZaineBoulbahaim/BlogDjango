@@ -1,0 +1,29 @@
+.navbar {
+    background-color: #43484d !important;
+}
+
+/* Mueve todo el contenido de la barra hacia la derecha */
+.navbar .container > div {
+    margin-left: 20px;
+}
+
+/* Mantén el texto blanco */
+.navbar .nav-link, 
+.navbar .navbar-brand {
+    color: white !important;
+}
+
+img {
+    border-radius: 10px;
+}
+
+.text-content {
+    margin-left: 100px;
+    margin-right: 50px;
+}
+
+.post-image {
+    border: 1px solid #ccc !important;
+    border-radius: 15px !important;
+    padding: 1px !important;
+}

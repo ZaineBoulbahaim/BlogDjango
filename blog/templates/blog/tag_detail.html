@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Posts amb el tag "{{ tag.tag }}"{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Posts amb el tag: <span class="text-primary">{{ tag.tag }}</span></h1>
+
+  {% if posts %}
+    <div class="row">
+      {% for post in posts %}
+        <div class="col-md-4 mb-4">
+          {% include "blog/post_single.html" %}
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No hi ha cap post amb aquest tag.</p>
+  {% endif %}
+{% endblock %}

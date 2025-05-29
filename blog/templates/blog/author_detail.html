@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Autor: {{ author.first_name }}{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Posts de {{ author.first_name }} {{ author.last_name }}</h1>
+
+  {% if posts %}
+    <div class="row">
+      {% for post in posts %}
+        <div class="col-md-4 mb-4">
+          {% include "blog/post_single.html" %}
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Aquest autor encara no té cap post.</p>
+  {% endif %}
+{% endblock %}

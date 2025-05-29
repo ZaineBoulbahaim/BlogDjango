@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Tots els Posts{% endblock %}
+
+{% block content %}
+  <h1 class="mb-4">Tots els Posts</h1>
+
+  <div class="row">
+    {% for post in all_posts %}
+      <div class="col-md-4 mb-4">  {# Espai vertical entre files #}
+        {% include "blog/post_single.html" %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
