@@ -53,3 +53,13 @@ jobs:
         echo "import pydoc; import blog.views; pydoc.writedoc(blog.views)" | python manage.py shell
         mv blog.models.html docs/models_doc.html
         mv blog.views.html docs/views_doc.html
+    
+    - name: Commit and push Pydoc documentation
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git add docs/*.html
+        git commit -m "Actualitza documentació Pydoc"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
