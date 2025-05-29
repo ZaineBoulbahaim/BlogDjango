@@ -54,12 +54,13 @@ jobs:
         mv blog.models.html docs/models_doc.html
         mv blog.views.html docs/views_doc.html
     
-    - name: Commit and push Pydoc documentation
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@github.com"
-        git add docs/*.html
-        git commit -m "Actualitza documentació Pydoc"
-        git push origin main
+    - name: Push Pydoc to main
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add docs/*.html
+        git commit -m "Actualitza documentació Pydoc" || echo "Sense canvis"
+        git push https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git main
+
